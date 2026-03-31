@@ -1,1 +1,109 @@
 /* style.css = aparência */
+
+:root {
+    --primary: #2ecc71;
+    --primary-dark: #27ae60;
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --text: #2c3e50;
+    --muted: #7f8c8d;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+header {
+    background: var(--primary);
+    color: white;
+    padding: 24px 16px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 0 15px 30px;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    margin-top: 0;
+    color: var(--primary-dark);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #dcdde1;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+button {
+    margin-top: 12px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--primary-dark);
+}
+
+.tarefa {
+    border: 1px solid #e5e7eb;
+    border-left: 5px solid var(--primary);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #fafafa;
+}
+
+.tarefa h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+}
+
+.tarefa p {
+    margin: 4px 0;
+    color: var(--muted);
+}

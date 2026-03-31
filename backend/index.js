@@ -9,13 +9,13 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// ROTA TESTE
-app.get("/", (req, res) => {
-  res.send("API RODANDO");
-});
-
 // ROTA DE TAREFAS
 let tarefas = [];
+
+// ROTA TESTE
+app.get("/", (req, res) => {
+  res.send("api rodando");
+});
 
 // LISTAR TAREFAS
 app.get("/tarefas", (req, res) => {
