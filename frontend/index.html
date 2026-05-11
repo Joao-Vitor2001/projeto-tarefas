@@ -1,48 +1,196 @@
-<!-- index.html = estrutura da tela -->
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meu Controle Pessoal</title>
-    <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Controle Pessoal</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <h1>Meu Controle Pessoal</h1>
-        <p>Agenda e finanças pessoais</p>
-    </header>
 
-    <main class="container">
-        <section class="card">
-            <h2>Nova Tarefa</h2>
+<div class="app-shell">
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand__icon">💼</div>
+            <div>
+                <h1>Meu Controle Pessoal</h1>
+                <p>Agenda e Finanças Pessoais</p>
+            </div>
+        </div>
 
-            <form id="form-tarefa">
-                <label for="titulo">Título</label>
-                <input type="text" id="titulo" placeholder="Ex: Pagar internet" required />
+        <nav class="sidebar-nav">
+            <a class="nav-link active" href="#">Resumo</a>
+            <a class="nav-link" href="#">Finanças</a>
+            <a class="nav-link" href="#">Agenda</a>
+            <a class="nav-link" href="#">Categorias</a>
+            <a class="nav-link" href="#">Relatórios</a>
+            <a class="nav-link" href="#">Metas</a>
+            <a class="nav-link" href="#">Configurações</a>
+        </nav>
 
-                <label for="data">Data</label>
-                <input type="date" id="data" required />
+        <div class="support-card">
+            <p>Precisa de ajuda?</p>
+            <strong>Suporte</strong>
+        </div>
+    </aside>
 
-                <label for="hora">Hora</label>
-                <input type="time" id="hora" required />
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h2>Meu Controle Pessoal</h2>
+                <p>Agenda e finanças pessoais</p>
+            </div>
+            <div class="topbar-actions">
+                <div class="search-box">
+                    <input type="search" placeholder="Buscar..." aria-label="Buscar">
+                </div>
+                <button class="icon-button" type="button">🌙</button>
+                <button class="profile-button" type="button">JD</button>
+            </div>
+        </header>
 
-                <button type="submit">Salvar Tarefa</button>
-            </form>
+        <section class="summary-cards">
+            <article class="summary-card summary-card--income">
+                <span>Receitas</span>
+                <strong>R$ <span id="total-receitas">0,00</span></strong>
+                <small>Este mês</small>
+            </article>
+            <article class="summary-card summary-card--expense">
+                <span>Despesas</span>
+                <strong>R$ <span id="total-despesas">0,00</span></strong>
+                <small>Este mês</small>
+            </article>
+            <article class="summary-card summary-card--balance">
+                <span>Saldo</span>
+                <strong>R$ <span id="total-saldo">0,00</span></strong>
+                <small>Este mês</small>
+            </article>
+            <article class="summary-card summary-card--due">
+                <span>Vencimentos</span>
+                <strong><span id="total-vencimentos">0</span></strong>
+                <small>Próximos 7 dias</small>
+            </article>
         </section>
 
-        <section class="card">
-            <h2>Minhas Tarefas</h2>
-            <div id="lista-tarefas">
-                <p>Nenhuma tarefa cadastrada ainda.</p>
+        <section class="grid-layout">
+            <div class="panel panel--form">
+                <div class="panel-header">
+                    <h3>Adicionar nova finança</h3>
+                </div>
+                <form id="form-financa">
+                    <div class="form-row">
+                        <label for="titulo">Título</label>
+                        <input type="text" id="titulo" placeholder="Ex: Pagar internet" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="valor">Valor (R$)</label>
+                        <input type="number" id="valor" placeholder="150,00" step="0.01" min="0" required>
+                    </div>
+                    <div class="grid-two">
+                        <div class="form-row">
+                            <label for="vencimento">Data de vencimento</label>
+                            <input type="date" id="vencimento" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="parcelas">Parcelas</label>
+                            <select id="parcelas">
+                                <option value="1">1 parcela</option>
+                                <option value="2">2 parcelas</option>
+                                <option value="3">3 parcelas</option>
+                                <option value="4">4 parcelas</option>
+                                <option value="5">5 parcelas</option>
+                                <option value="6">6 parcelas</option>
+                                <option value="7">7 parcelas</option>
+                                <option value="8">8 parcelas</option>
+                                <option value="9">9 parcelas</option>
+                                <option value="10">10 parcelas</option>
+                                <option value="11">11 parcelas</option>
+                                <option value="12">12 parcelas</option>
+                                <option value="24">24 parcelas</option>
+                                <option value="36">36 parcelas</option>
+                                <option value="48">48 parcelas</option>
+                                <option value="60">60 parcelas</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid-two">
+                        <div class="form-row">
+                            <label for="categoria">Categoria</label>
+                            <select id="categoria">
+                                <option value="Contas Fixas">Contas Fixas</option>
+                                <option value="Saúde">Saúde</option>
+                                <option value="Alimentação">Alimentação</option>
+                                <option value="Lazer">Lazer</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label>Tipo</label>
+                            <div class="type-toggle" id="tipo-toggle">
+                                <button type="button" data-value="Despesa" class="type-button active">Despesa</button>
+                                <button type="button" data-value="Receita" class="type-button">Receita</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="primary-button">Salvar Finança</button>
+                </form>
+            </div>
+
+            <div class="panel panel--due">
+                <div class="panel-header">
+                    <h3>Próximos vencimentos</h3>
+                </div>
+                <div id="lista-vencimentos" class="due-list">
+                    <p>Nenhum vencimento cadastrado.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel panel--table">
+            <div class="panel-header panel-header--space">
+                <div>
+                    <h3>Minhas Finanças</h3>
+                </div>
+                <div class="table-controls">
+                    <select id="filtro-tipo">
+                        <option value="todos">Todos os tipos</option>
+                        <option value="Receita">Receita</option>
+                        <option value="Despesa">Despesa</option>
+                    </select>
+                    <select id="filtro-categoria">
+                        <option value="todos">Todas categorias</option>
+                        <option value="Contas Fixas">Contas Fixas</option>
+                        <option value="Saúde">Saúde</option>
+                        <option value="Alimentação">Alimentação</option>
+                        <option value="Lazer">Lazer</option>
+                    </select>
+                    <button id="exportar" class="secondary-button">Exportar</button>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Categoria</th>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                            <th>Vencimento</th>
+                            <th>Parcelas</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-financas">
+                        <tr>
+                            <td colspan="7" class="empty-row">Nenhuma finança cadastrada ainda.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
     </main>
+</div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
